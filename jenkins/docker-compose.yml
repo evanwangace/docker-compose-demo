@@ -1,0 +1,21 @@
+version: '3.6'
+services:
+  jenkins:
+    image: jenkinsci/blueocean:1.25.2          # 指定服务所使用的镜像
+    container_name: jenkins                    # 容器名称
+    user: root                                 # 为了避免权限问题，使用root启动容器
+    restart: always                            # 重启方式
+    ports:                                     # 对外暴露的端口定义
+      - "8888:8080"                            # 访问jenkins服务端口
+      - "50000:50000"
+    environment:                               # 设置容器内时区为上海
+      TZ: Asia/Shanghai
+    volumes:                                   # 数据卷挂载路径
+      - ./data:/var/jenkins_home               # 将jenkins的工作目录jenkins_home挂载到本地
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /usr/bin/docker:/usr/bin/docker        # 这样挂载能让我们在容器内使用docker和docker-compose命令
+      - /usr/local/bin/docker-compose:/usr/local/bin/docker-compose
+    # 配置国内镜像加速（可选操作）
+    # cd ./data/updates（data为数据卷挂载路径）
+    # sed -i 's#https://updates.jenkins.io/download#https://mirrors.tuna.tsinghua.edu.cn/jenkins#g' default.json
+    # sed -i 's#http://www.google.com#https://www.baidu.com#g' default.json
