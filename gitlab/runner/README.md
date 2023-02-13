@@ -3,28 +3,33 @@
 ## 1.部署容器
 
 ### 1.1增加root权限
+
 ```
 # 在宿主机启动docker后，执行以下命令，如果重启过docker，需要重新执行
 sudo chown root:root /var/run/docker.sock
 ```
 
 ### 1.2创建gitlab-runner文件夹，并进入文件夹
+
 ```
 mkdir gitlab-runner & cd gitlab-runner
 ```
 
 ### 1.3 将docker-compose.yml拷贝到当前文件夹，并启动容器
+
 ```
 docker-compose up -d
 ```
 
 ### 1.4添加容器权限
+
 ```
 # 添加容器权限，保证容器可以使用宿主机的docker
 docker exec -it gitlab-runner usermod -aG root gitlab-runner
 ```
 
 ## 2.配置runner
+
 ```
 # 注册Runner信息到gitlab
 docker exec -it gitlab-runner gitlab-runner register
@@ -59,6 +64,7 @@ shell
 ```
 
 ## 3.参考文章
+
 ```
 gitlab教程
 https://www.bilibili.com/video/BV18y4y1S7VC?p=6
