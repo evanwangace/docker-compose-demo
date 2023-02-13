@@ -3,16 +3,19 @@
 ## 1.部署容器
 
 ### 1.1 创建gitlab-server文件夹，并进入文件夹
+
 ```
 mkdir gitlab-server & cd gitlab-server
 ```
 
 ### 1.2 将docker-compose.yml拷贝到当前文件夹，并启动容器
+
 ```
 docker-compose up -d
 ```
 
 ### 1.3 获取gitlab root账号初始密码
+
 ```
 docker exec -it 容器id grep 'Password:' /etc/gitlab/initial_root_password
 ```
