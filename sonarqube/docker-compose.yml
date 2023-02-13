@@ -1,0 +1,48 @@
+version: '3.6'
+services:
+  postgres:
+    image: postgres:12.3
+    container_name: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - /data/sonar/postgres/postgresql:/var/lib/postgresql
+      - /data/sonar/postgres/data:/var/lib/postgresql/data
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      TZ: Asia/Shanghai
+      POSTGRES_USER: sonar
+      POSTGRES_PASSWORD: sonar
+      POSTGRES_DB: sonar
+      # 设置多分支插件（可选操作）
+      SONAR_WEB_JAVAADDITIONALOPTS: -javaagent:/opt/sonarqube/extensions/plugins/sonarqube-community-branch-plugin-1.8.2.jar=web
+      SONAR_CE_JAVAADDITIONALOPTS: -javaagent:/opt/sonarqube/extensions/plugins/sonarqube-community-branch-plugin-1.8.2.jar=ce
+
+  sonar:
+    image: sonarqube:8.9.3-community
+    container_name: sonar
+    depends_on:
+      - postgres
+    volumes:
+      - /data/sonar/sonarqube/extensions:/opt/sonarqube/extensions
+      - /data/sonar/sonarqube/logs:/opt/sonarqube/logs
+      - /data/sonar/sonarqube/data:/opt/sonarqube/data
+      - /data/sonar/sonarqube/conf:/opt/sonarqube/conf
+      # 设置与宿主机时间同步
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - "9999:9000"
+    command:
+      # 内存设置
+      - -Dsonar.ce.javaOpts=-Xmx2048m
+      - -Dsonar.web.javaOpts=-Xmx2048m
+      # 设置服务代理路径
+      - -Dsonar.web.context=/
+      # 此设置用于集成gitlab时，回调地址设置
+      - -Dsonar.core.serverBaseURL=http://sonarqube.example.com
+    environment:
+      TZ: Asia/Shanghai
+      SONARQUBE_JDBC_USERNAME: sonar
+      SONARQUBE_JDBC_PASSWORD: sonar
+      SONARQUBE_JDBC_URL: jdbc:postgresql://postgres:5432/sonar
