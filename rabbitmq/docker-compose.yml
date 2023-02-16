@@ -1,0 +1,16 @@
+version: '3'
+services:
+  rabbitmq:
+    image: rabbitmq:3.10.6
+    container_name: rabbitmq
+    build:
+      context: ./
+    environment:
+      RABBITMQ_DEFAULT_USER: rabbitmq123
+      RABBITMQ_DEFAULT_PASS: rabbitmq123
+    ports:
+      - "15672:15672" # 管理界面端口
+      - "5672:5672"   # api 端口
+    volumes:
+      - ./log:/var/log/rabbitmq
+      - ./data:/var/lib/rabbitmq
