@@ -6,7 +6,7 @@ services:
     build:
       context: ./
     environment:
-      RABBITMQ_DEFAULT_USER: rabbitmq123
+      RABBITMQ_DEFAULT_USER: rabbitmq
       RABBITMQ_DEFAULT_PASS: rabbitmq123
     ports:
       - "15672:15672" # 管理界面端口

@@ -46,8 +46,8 @@ services:
     environment:
       ZK_HOSTS: 127.0.0.1:2181
       APPLICATION_SECRET: letmein
-      KAFKA_MANAGER_USERNAME: ruoyi
-      KAFKA_MANAGER_PASSWORD: ruoyi123
+      KAFKA_MANAGER_USERNAME: kafka
+      KAFKA_MANAGER_PASSWORD: kafka123
       KM_ARGS: -Dhttp.port=19092
     depends_on:
       - kafka
