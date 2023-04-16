@@ -1,11 +1,55 @@
-# docker-compose-demo
-🐳 深入浅出，使用docker-compose部署各种应用。
+<h1 align="center"><a href="https://github.com/xkcoding" target="_blank">Docker Compose Demo</a></h1>
+<p align="center">
+  <a href="https://github.com/wangming2674/docker-compose-demo/blob/master/license"><img alt="LICENSE" src="https://img.shields.io/github/license/wangming2674/docker-compose-demo.svg"/></a>
+  <a href="https://github.com/wangming2674"><img alt="author" src="https://img.shields.io/badge/author-Evan Wang-blue.svg"/></a>
+  <a href="https://www.jetbrains.com/?from=docker-compose-demo"><img alt="author" src="https://img.shields.io/badge/IntelliJ%20IDEA-提供支持-green.svg"/></a>
+</p>
 
-## docker-compose command
+<p align="center">
+  <a href="https://github.com/wangming2674/docker-compose-demo/stargazers"><img alt="star" src="https://img.shields.io/github/stars/wangming2674/docker-compose-demo.svg?label=Stars&style=social"/></a>
+  <a href="https://github.com/wangming2674/docker-compose-demo/network/members"><img alt="star" src="https://img.shields.io/github/forks/wangming2674/docker-compose-demo.svg?label=Fork&style=social"/></a>
+  <a href="https://github.com/wangming2674/docker-compose-demo/watchers"><img alt="star" src="https://img.shields.io/github/watchers/wangming2674/docker-compose-demo.svg?label=Watch&style=social"/></a>
+</p>
+
+## 项目简介
+
+您是否在工作中用`docker`搭建服务时，遇到过以下问题：
+```text
+1.每次都要重复查找搭建服务的docker命令，浪费时间。
+2.找到的docker命令各式各样，毫无规范。
+3.命令可以使用，但是需要设置的参数残缺不全。
+4.对要搭建的服务需要设置的相关参数一知半解，无法配置。
+5.不清楚使用的命令是否经过验证，无法保证安全性和可靠性。
+```
+
+`docker compose demo` 是一个旨在帮助开发者用`docker-compose` 快速部署相关`docker`服务的代码库，目前总共包含 `12` 个demo。
+
+| 服务             | 功能简介          | 官方网站                        |
+|:---------------|---------------|-----------------------------|
+| jenkins        | 持续集成工具        | https://www.jenkins.io      |
+| gitlab         | 代码仓库管理系统      | https://gitlab.com          |
+| redis          | 缓存数据库         | https://redis.io            |
+| nginx          | 反向代理web服务器    | https://nginx.com           |                                    
+| sonarqube      | 源代码检测工具       | https://www.sonarsource.com |
+| mysql          | 关系数据库         | https://dev.mysql.com       |
+| elastic search | 分布式的全文搜索引擎    | https://www.elastic.co      |
+| logstash       | 服务器端数据处理管道    | https://www.elastic.co      |
+| kibana         | 分布式数据分析与可视化平台 | https://www.elastic.co      |
+| kafka          | 分布式消息队列       | https://kafka.apache.org    |
+| minio          | 分布式文件存储       | https://min.io              |
+| rabbitmq       | 分布式消息队列       | https://www.rabbitmq.com    |
+
+> 如果大家还有其他想要搭建的`docker`服务，可以在[issue](https://github.com/wangming2674/docker-compose-demo/issues/new)中提出需求。
+
+> 项目中`docker-compose`代码均来自于实践总结，但难免会出现错误，如果您发现有问题，请及时进行反馈，我会在收到反馈后第一时间进行修复。
+
+> 如果您有已经编写好的`docker-compose`代码，欢迎提出PR，提前感谢您的贡献。🤝
+
+## Docker-Compose命令
 
 ```
 # 在后台启动服务
-docker-compose up -d  
+docker-compose up -d 
 
 # 查看启动的服务
 docker-compose ps   
