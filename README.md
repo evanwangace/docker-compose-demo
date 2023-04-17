@@ -1,4 +1,4 @@
-<h1 align="center"><a href="https://github.com/xkcoding" target="_blank">Docker Compose Demo</a></h1>
+<h1 align="center"><a href="https://github.com/wangming2674/docker-compose-demo" target="_blank">Docker Compose Demo</a></h1>
 <p align="center">
   <a href="https://github.com/wangming2674/docker-compose-demo/blob/master/license"><img alt="LICENSE" src="https://img.shields.io/github/license/wangming2674/docker-compose-demo.svg"/></a>
   <a href="https://github.com/wangming2674"><img alt="author" src="https://img.shields.io/badge/author-Evan Wang-blue.svg"/></a>
@@ -14,6 +14,7 @@
 ## 项目简介
 
 您是否在工作中用`docker`搭建服务时，遇到过以下问题：
+
 ```text
 1.每次都要重复查找搭建服务的docker命令，浪费时间。
 2.找到的docker命令各式各样，毫无规范。
@@ -22,7 +23,8 @@
 5.不清楚使用的命令是否经过验证，无法保证安全性和可靠性。
 ```
 
-`docker compose demo` 是一个旨在帮助开发者用`docker-compose` 快速部署相关`docker`服务的代码库，目前总共包含 `12` 个demo。
+`docker compose demo` 是一个旨在帮助开发者用`docker-compose` 快速、便捷、可靠地部署相关`docker`
+服务的代码库，目前总共包含 `12` 个demo。
 
 | 服务             | 功能简介          | 官方网站                        |
 |:---------------|---------------|-----------------------------|
@@ -45,9 +47,56 @@
 
 > 如果您有已经编写好的`docker-compose`代码，欢迎提出PR，提前感谢您的贡献。🤝
 
+## Docker和Docker-Compose安装
+
+> 注意：以下脚本已经过`linux centos7.x`系统测试，其他系统无法保证完全适用。
+
+```shell
+#!/bin/bash
+# 更新yum依赖
+yum update -y && yum makecache -y
+
+# 安装依赖包
+yum install -y yum-uitls device-mapper-persistent-data lvm2
+
+echo 'Install started...'
+
+# 安装docker
+curl https://download.docker.com/linux/centos/docker-ce.repo -o /etc/yum.repos.d/docker-ce.repo
+yum install -y docker-ce
+
+# 启动docker
+systemctl enable docker
+systemctl start docker
+
+# 配置docker镜像加速
+[ -f /etc/docker/daemon.json ] || touch /etc/docker/daemon.json
+cat >>/etc/docker/daemon.json <<EOF
+{
+"registry-mirrors": ["https://gdhauhuq.mirror.aliyuncs.com"],
+"log-driver":"json-file",
+"log-opts":{"max-size" :"1000m","max-file":"5"}
+}
+EOF
+
+# 重新加载docker配置
+systemctl daemon-reload
+systemctl restart docker
+
+# 安装docker-compose
+curl -L https://get.daocloud.io/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m) >/usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+
+# 查看版本信息
+docker -v
+docker-compose -v
+
+echo "Install completed!"
+```
+
 ## Docker-Compose命令
 
-```
+```shell
 # 在后台启动服务
 docker-compose up -d 
 
@@ -75,7 +124,8 @@ docker-compose logs
 # 列出项目中目前的所有容器
 docker-compose ps
 
-# 构建（重新构建）项目中的服务容器。服务容器一旦构建后，将会带上一个标记名，例如对于 web 项目中的一个 db 容器，可能是 web_db。可以随时在项目目录下运行 docker-compose build
+# 构建（重新构建）项目中的服务容器。服务容器一旦构建后，将会带上一个标记名，例如对于 web 项目中的一个 db 容器，可能是 web_db，可以随时在项目目录下运行build命令。
+docker-compose build
 
 # 拉取服务依赖的镜像
 docker-compose pull
@@ -98,3 +148,14 @@ docker-compose start
 # 停止已经处于运行状态的容器，但不删除它。通过 docker-compose start 可以再次启动这些容器。
 docker-compose stop
 ```
+
+## 寻求支持
+
+如果您遇到了技术上的问题难以解决，包括但不限于`docker`，请在`star`本项目后，加入以下qq群，我会对您进行支持。
+<p><img src="./qq-qr-code.png" width="195"></p>
+
+## 其他
+
+### 我的博客
+
+定期会分享一些技术文章、心得感悟、和软件资源，欢迎关注。👉 [Evan's Blog ٩(๑❛ᴗ❛๑)۶](https://evanwang.blog.csdn.net)
