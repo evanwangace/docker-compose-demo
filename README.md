@@ -1,4 +1,4 @@
-<h1 align="center"><a href="https://github.com/xkcoding" target="_blank">Docker Compose Demo</a></h1>
+<h1 align="center"><a href="https://github.com/wangming2674/docker-compose-demo" target="_blank">Docker Compose Demo</a></h1>
 <p align="center">
   <a href="https://github.com/wangming2674/docker-compose-demo/blob/master/license"><img alt="LICENSE" src="https://img.shields.io/github/license/wangming2674/docker-compose-demo.svg"/></a>
   <a href="https://github.com/wangming2674"><img alt="author" src="https://img.shields.io/badge/author-Evan Wang-blue.svg"/></a>
