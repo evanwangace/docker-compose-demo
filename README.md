@@ -152,7 +152,9 @@ docker-compose stop
 ## 寻求支持
 
 如果您遇到了技术上的问题难以解决，包括但不限于`docker`，请在`star`本项目后，加入以下qq群，我会对您进行支持。
-<p><img src="./qq-qr-code.png" width="195"></p>
+
+<p>群号：463524210<p>
+<img src="https://s1.ax1x.com/2023/04/17/p9C5qeA.png" width="195" alt="qq群二维码"/>
 
 ## 其他
 
