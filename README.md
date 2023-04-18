@@ -24,22 +24,23 @@
 ```
 
 `docker compose demo` 是一个旨在帮助开发者用`docker-compose` 快速、便捷、可靠地部署相关`docker`
-服务的代码库，目前总共包含 `12` 个demo。
+服务的代码库，目前总共包含 `13` 个demo。
 
-| 服务             | 功能简介          | 官方网站                        |
-|:---------------|---------------|-----------------------------|
-| jenkins        | 持续集成工具        | https://www.jenkins.io      |
-| gitlab         | 代码仓库管理系统      | https://gitlab.com          |
-| redis          | 缓存数据库         | https://redis.io            |
-| nginx          | 反向代理web服务器    | https://nginx.com           |                                    
-| sonarqube      | 源代码检测工具       | https://www.sonarsource.com |
-| mysql          | 关系数据库         | https://dev.mysql.com       |
-| elastic search | 分布式的全文搜索引擎    | https://www.elastic.co      |
-| logstash       | 服务器端数据处理管道    | https://www.elastic.co      |
-| kibana         | 分布式数据分析与可视化平台 | https://www.elastic.co      |
-| kafka          | 分布式消息队列       | https://kafka.apache.org    |
-| minio          | 分布式文件存储       | https://min.io              |
-| rabbitmq       | 分布式消息队列       | https://www.rabbitmq.com    |
+| 服务             | 功能简介          | 官方网站                         |
+|:---------------|---------------|------------------------------|
+| jenkins        | 持续集成工具        | https://www.jenkins.io       |
+| gitlab         | 代码仓库管理系统      | https://gitlab.com           |
+| redis          | 缓存数据库         | https://redis.io             |
+| nginx          | 反向代理web服务器    | https://nginx.com            |
+| sonarqube      | 源代码检测工具       | https://www.sonarsource.com  |
+| mysql          | 关系数据库         | https://dev.mysql.com        |
+| elastic search | 分布式的全文搜索引擎    | https://www.elastic.co       |
+| logstash       | 服务器端数据处理管道    | https://www.elastic.co       |
+| kibana         | 分布式数据分析与可视化平台 | https://www.elastic.co       |
+| kafka          | 分布式消息队列       | https://kafka.apache.org     |
+| minio          | 分布式文件存储       | https://min.io               |
+| rabbitmq       | 分布式消息队列       | https://www.rabbitmq.com     |
+| zookeeper      | 分布式应用程序协调服务   | https://zookeeper.apache.org |
 
 > 如果大家还有其他想要搭建的`docker`服务，可以在[issue](https://github.com/wangming2674/docker-compose-demo/issues/new)中提出需求。
 
