@@ -1,0 +1,14 @@
+version: '3'
+services:
+  portainer:
+    image: portainer/portainer:latest
+    container_name: portainer
+    # 重启方式
+    restart: always
+    ports:
+      - "9000:9000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      # 时区上海
+      TZ: Asia/Shanghai
