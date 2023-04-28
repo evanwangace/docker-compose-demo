@@ -15,7 +15,7 @@ chmod 777 ./data
 chmod 777 ./log
 ```
 
-### 1.3 启动容器（如果不需要部署可视化界面，按需调整启动命令即可）
+### 1.3 启动容器
 
 ```
 docker-compose up -d rabbitmq
