@@ -24,7 +24,7 @@
 ```
 
 `docker compose demo` 是一个旨在帮助开发者用`docker-compose` 快速、便捷、可靠地部署相关`docker`
-服务的代码库，目前总共包含 `14` 个demo。
+服务的代码库，目前总共包含 `15` 个demo。
 
 | 服务             | 功能简介            | 官方网站                         |
 |:---------------|-----------------|------------------------------|
@@ -42,6 +42,7 @@
 | rabbitmq       | 分布式消息队列         | https://www.rabbitmq.com     |
 | zookeeper      | 分布式应用程序协调服务     | https://zookeeper.apache.org |
 | portainer      | Docker可视化容器管理工具 | https://www.portainer.io     |
+| rocketmq       | 分布式消息队列         | https://rocketmq.apache.org  |
 
 > 如果大家还有其他想要搭建的`docker`服务，可以在[issue](https://github.com/wangming2674/docker-compose-demo/issues/new)中提出需求。
 
@@ -164,13 +165,3 @@ docker-compose stop
 ### 我的博客
 
 定期会分享一些技术文章、心得感悟、和软件资源，欢迎关注。👉 [Evan's Blog ٩(๑❛ᴗ❛๑)۶](https://evanwang.blog.csdn.net)
-
-### 寻找创业伙伴
-
-首先你要充满热情并有一颗躁动的心，其次，你拥有以下任意一种优势。
-
-1. 一定的市场资源。
-2. web端或移动端的开发能力。
-3. 对某领域业务非常熟悉，或具备较强的业务梳理能力。
-
-请加群后联系群主，期待你的加入。
